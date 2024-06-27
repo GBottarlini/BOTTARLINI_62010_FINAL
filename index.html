@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    
     <title>Comparador de Productos Electrónicos</title>
 </head>
 <body>
 
     <h1>Comparador de Productos Electrónicos</h1>
 
-    <form id = "producForm">
-        <input type="text" id="pruductName" placeholder="Nombre del producto" required>
+    <form id = "productForm">
+        <input type="text" id="productName" placeholder="Nombre del producto" required>
         <input type="text" id="productCategory" placeholder="Categoria" required>
         <input type="number" id="productPrice" placeholder="Precio" required>
         <input type="number" id="productRating" placeholder="Calificación" required>
@@ -29,11 +29,11 @@
     </div>
 
     <h2>Resultados de la Comparación:</h2>
-    <div id="comparisonResult""></div>
+    <div class="comparisonResults" id="comparisonResults"></div>
 
 
 
 
-
+    <script src="script.js"></script>
 </body>
 </html>
