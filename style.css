@@ -5,8 +5,7 @@
     box-sizing: border-box;
 }
 
-
-/* Interfaz */
+/* Estilos generales */
 
 body {
     
@@ -16,42 +15,30 @@ body {
     background-color:#c68de5;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
+    color: #333;
     margin-bottom: 20px;
-    color: #333;
 }
 
-h2{
-    text-align: center;
-    
-    color: #333;
-}
-
-form {
+/* Estilos de Formulario */
+.form-group {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 20px;
+    margin-top: 20px;
+    gap: 20px;
 }
 
-button {
-    background-color: #ad61d4;
-    color: #fff;
-}
-
-button:hover {
-    background-color: #9241b8;
-}
-
-
-
-input, button {
+input {
     display: flex;
     padding: 10px;
     margin: 10px;
+    background-color:#f5ecfb ;
     border: 1px solid #9241b8;
-    border-radius: 5px;
+    border-radius: 20px;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -60,10 +47,50 @@ input, button {
     justify-content: center;
 }
 
+/* Estilos de Botones */
+.botones{
+    background-color: #a255c8;
+    color: #fff;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #9241b8;
+    border-radius: 20px;
+    cursor: pointer;
+}
 
+.eliminar-producto {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #9241b8;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.botones:hover {
+    background-color: #f5ecfb;
+    color: #cb9ae6;
+};
+
+.botones:active {
+    background-color: #f5ecfb;
+    color: #cb9ae6;
+}
+
+.botones:hover, .eliminar-producto:hover { 
+    background-color: #f5ecfb;
+    color: #cb9ae6;
+};
+
+.botones:active, .eliminar-producto:active { 
+    color: #cb9ae6;
+}
+
+/* Estilos de Listas */
 ul {
     list-style-type: none;
-    padding: 0;
+    padding: 0 !important;
 }
 
 li {
@@ -76,5 +103,44 @@ li {
     background-color: #ead7f7;
     border: 1px solid #9241b8;
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;
 }
 
+.lista-productos {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to top left, #8c42ae, #763a8f);
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 20px;
+    margin: auto;
+    margin-bottom: 10px;
+    max-width: 800px;
+}
+
+.producto-mas-caro, .producto-mejor-calificado {
+    background-color: #ad61d4; 
+    color: #fff; 
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 20px;
+    margin: auto;
+    margin-bottom: 10px;
+    max-width: 800px;
+}
+
+.producto-mas-caro .destacado, .producto-mejor-calificado .destacado {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-right: 5px;
+}
+
+.producto-mas-caro .destacado {
+    color: #ffd700; 
+}
+
+.producto-mejor-calificado .destacado {
+    color: #32cd32; 
+}

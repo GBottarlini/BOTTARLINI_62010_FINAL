@@ -44,9 +44,26 @@ function mostrarProductos() {
     productos.forEach(producto => {
         const li = document.createElement('li');
         li.textContent = producto.mostrarInfo();
+        li.classList.add('lista-productos');
+        productList.appendChild(li);
+
+// Botón de eliminación a cada producto
+        const index = productos.indexOf(producto);
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Eliminar';
+        deleteButton.classList.add('eliminar-producto');
+        deleteButton.addEventListener('click', () => eliminarProducto(index));
+        li.appendChild(deleteButton);
+
         productList.appendChild(li);
     });
 }
+
+function eliminarProducto(index) {
+    productos.splice(index, 1);
+    mostrarProductos();
+}
+
 
 document.getElementById('compareButton').addEventListener('click', function() {
     const resultados = compararProductos();
@@ -71,13 +88,15 @@ function mostrarResultados(resultados) {
 
     if (resultados.productoMasCaro) {
         const caroDiv = document.createElement('li');
-        caroDiv.textContent = `Producto Más Caro: ${resultados.productoMasCaro.mostrarInfo()}`;
+        caroDiv.innerHTML = `<span class="destacado">Producto Más Caro:</span> ${resultados.productoMasCaro.mostrarInfo()}`;
+        caroDiv.classList.add('producto-mas-caro');
         comparisonResults.appendChild(caroDiv);
     }
 
     if (resultados.productoMejorCalificado) {
         const calificadoDiv = document.createElement('li');
-        calificadoDiv.textContent = `Producto Mejor Calificado: ${resultados.productoMejorCalificado.mostrarInfo()}`;
+        calificadoDiv.innerHTML = `<span class="destacado">Producto Mejor Calificado:</span> ${resultados.productoMejorCalificado.mostrarInfo()}`;
+        calificadoDiv.classList.add('producto-mejor-calificado');
         comparisonResults.appendChild(calificadoDiv);
     }
 }
