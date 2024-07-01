@@ -34,12 +34,12 @@ document.getElementById('productForm').addEventListener('submit', function(e) {
 
     if (isNaN(precio) || precio <= 0) {
         isValid = false;
-        errorMessages.innerHTML += '<p>Por favor, ingresa un precio válido.</p>';
+        errorMessages.innerHTML += '<small><p>Por favor, ingresa un precio válido.</p></small>';
     }
 
     if (isNaN(calificacion) || calificacion < 0 || calificacion > 5) {
         isValid = false;
-        errorMessages.innerHTML += '<p>La calificación debe estar entre 0 y 5.</p>';
+        errorMessages.innerHTML += '<small><p>La calificación debe estar entre 0 y 5.</p></small>';
     }
 
     if (isValid) {
