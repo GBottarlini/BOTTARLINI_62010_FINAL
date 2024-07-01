@@ -100,3 +100,21 @@ function mostrarResultados(resultados) {
         comparisonResults.appendChild(calificadoDiv);
     }
 }
+
+// Dark Mode
+const toggleSwitch = document.getElementById('darkModeToggle');
+toggleSwitch.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', JSON.stringify(toggleSwitch.checked))
+});
+
+// Cambiar el modo y guardad en LocalStorage
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+    toggleSwitch.checked = true;
+} else {
+    document.body.classList.remove('dark-mode');
+    toggleSwitch.checked = false;
+}
+
+

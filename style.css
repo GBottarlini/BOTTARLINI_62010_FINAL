@@ -12,8 +12,63 @@ body {
     font-family: Arial, sans-serif;
     margin-top: 30px; 
     padding: 20px;
-    background-color:#c68de5;
 }
+
+
+/* Modo oscuro */
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .destacado {
+    color: #ff0;
+}
+
+
+/* Estilos boton DarkMode */
+.switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    right: 20px;
+    position: absolute;
+}
+.button {
+    background-color: #d2d2d2;
+    width: 60px;
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+}
+.button::before {
+    position: absolute;
+    content: '';
+    background-color: #f5ecfb;
+    width: 30px;
+    height: 30px;
+    border-radius:50%;
+    margin: 5px;
+    transition: 0.2s;
+}
+
+
+input:checked + .button {
+    background-color: #361042 ;
+}
+input:checked + .button::before {
+    transform: translateX(20px);
+}
+
+.darkModeToggle {
+    display: none;
+}
+
+/* Estilos de Títulos */
 
 h1, h2 {
     text-align: center;
@@ -143,4 +198,28 @@ li {
 
 .producto-mejor-calificado .destacado {
     color: #32cd32; 
+}
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .switch {
+        top: 10px;
+        right: 10px;
+    }
+
+    .button {
+        width: 30px;
+        height: 20px;
+    }
+
+    .button::before {
+        width: 12px;
+        height: 12px;
+        margin: 4px;
+    }
+
+    input:checked + .button::before {
+        transform: translateX(10px);
+    }
 }
