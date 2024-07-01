@@ -86,6 +86,13 @@ h1, h2 {
     gap: 20px;
 }
 
+/* Estilos de Errores */
+#errorMessages {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
 input {
     display: flex;
     padding: 10px;

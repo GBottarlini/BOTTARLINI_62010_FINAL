@@ -21,22 +21,37 @@ document.getElementById('productForm').addEventListener('submit', function(e) {
     const categoria = document.getElementById('productCategory').value;
     let precio = parseFloat(document.getElementById('productPrice').value);
     let calificacion = parseFloat(document.getElementById('productRating').value);
+    const errorMessages = document.getElementById('errorMessages');
+    errorMessages.innerHTML = '';
 
-    // Manejo de errores
+    // Validación de datos
+    let isValid = true;
+
+    if (!nombre || !categoria || isNaN(precio) || isNaN(calificacion)) {
+        isValid = false;
+        errorMessages.innerHTML += '<p>Por favor, completa los campos.</p>';
+    }
+
     if (isNaN(precio) || precio <= 0) {
-        alert('Por favor, ingresa un precio válido.');
-        return;
-    }
-    if (isNaN(calificacion) || calificacion < 0 || calificacion > 5) {
-        alert('Por favor, ingresa una calificación válida (entre 0 y 5).');
-        return;
+        isValid = false;
+        errorMessages.innerHTML += '<p>Por favor, ingresa un precio válido.</p>';
     }
 
-    const producto = new Producto(nombre, categoria, precio, calificacion);
-    productos.push(producto);
-    mostrarProductos();
-    document.getElementById('productForm').reset();
+    if (isNaN(calificacion) || calificacion < 0 || calificacion > 5) {
+        isValid = false;
+        errorMessages.innerHTML += '<p>La calificación debe estar entre 0 y 5.</p>';
+    }
+
+    if (isValid) {
+        const producto = new Producto(nombre, categoria, precio, calificacion);
+        productos.push(producto);
+        mostrarProductos();
+        document.getElementById('productForm').reset();
+    }
+
 });
+
+
 
 function mostrarProductos() {
     const productList = document.getElementById('productsList');
