@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Estilos CSS -->
+    <link rel="shortcut icon" href="img/2.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <title>Comparador de Productos Electrónicos</title>
+    <title>Comparador de Productos</title>
 </head>
+
 <body>
 
-    <h1>Comparador de Productos Electrónicos</h1>
+    <header>
+        <div class="switch">
+            <img src="IMG/1.png" class="logo" alt="logotipo de pagina comparadora de productos">
+            <input type="checkbox" class="darkModeToggle" id="darkModeToggle">
+            <label for="darkModeToggle" class="button"></label>
+        </div>
+    </header>
 
-    <div class="switch">
-        <input type="checkbox" class="darkModeToggle" id="darkModeToggle" >
-        <label for="darkModeToggle" class="button"></label>
+
+    <h1 class="text-center">Comparador de Productos</h1>
+
+    <div>
+        <div class="contendor">
+            <div class="buscador">
+                <input type="text" class="buscar" id="searchQuery" placeholder="Buscar productos...">
+                <button id="buscarBtn" class="botones">Buscar</button>
+            </div>
+        </div>
+
+        <div id="searchResults" class="container"></div>
+
+        <h2 class="text-center">Productos Agregados:</h2>
+
+        <div id="productsList" class="container"></div>
+
+        <div class="cont-boton"><button id="compareButtonAvanzado" class="botones">Comparar Avanzado</button></div>
+
     </div>
 
-    <form id = "productForm">
-        <div class = "form-group">
-            <input type="text" id="productName" placeholder="Nombre del producto" required>
-            <input type="text" id="productCategory" placeholder="Categoria" required>
-            <input type="number" id="productPrice" placeholder="Precio" required>
-            <input type="number" id="productRating" placeholder="Calificación" required>
+    <h2 class="text-center">Resultados de la Comparación</h2>
+    <div id="comparisonResults" class="comparison-container"></div>
+
+    <footer>
+        <small>
+            <p>&copy; 2024 Comparador de Productos. Todos los derechos reservados.</p>
+        </small>
+
+        <div class="redes">
+            <a href="https://www.linkedin.com/in/genarobottarlini" target="_blank">
+                <img src="./IMG/brand-linkedin.png" alt="LinkedIn" class="linkedin">
+            </a>
         </div>
-        
-        <!-- Contenedor para mensajes de error -->
-        <div id="errorMessages"></div>
-        
-        <div class="buttonContainer">
-            <button class="botones" type="submit">Agregar Productos</button>
-        </div>
-    </form>
-
-    <h2 class="text-center mt-4">Productos Agregados:</h2>
-    <ul id="productsList"></ul>
-
-
-    <div class="buttonContainer">
-        <button class="botones" id="compareButton"">Comparar Productos</button>
-    </div>
-
-    <h2>Resultados de la Comparación:</h2>
-    <ul id="comparisonResults"></ul>
-
-
-
-
+    </footer>
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+
 </html>
