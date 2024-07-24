@@ -133,6 +133,12 @@ const obtenerDetallesProducto = async (product) => {
 const agregarProducto = (producto) => {
   productosAgregados.push(producto);
   mostrarProductosAgregados();
+  Swal.fire({
+    title: 'Producto agregado',
+    text: `${producto.nombre} ha sido agregado exitosamente.`,
+    icon: 'success',
+    confirmButtonText: 'Aceptar'
+  });
 };
 
 // Función para mostrar los productos agregados
@@ -159,7 +165,7 @@ const mostrarProductosAgregados = () => {
     const cardData = document.createElement("div");
     cardData.classList.add("card__data");
 
-    const cardTitle = document.createElement("h2");
+          const cardTitle = document.createElement("h2");
     cardTitle.classList.add("card__title");
     cardTitle.textContent = producto.nombre;
     cardData.appendChild(cardTitle);
@@ -186,6 +192,23 @@ const mostrarProductosAgregados = () => {
 const eliminarProducto = (index) => {
   productosAgregados.splice(index, 1);
   mostrarProductosAgregados();
+  Swal.fire({
+    title: "¿Estás seguro?",
+    text: "¡No podrás revertir esto!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#5faab1",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "¡Sí, bórralo!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "¡Eliminado!",
+        text: "Tu archivo ha sido eliminado.",
+        icon: "success"
+      });
+    }
+  });  
 };
 
 // Función para comparar productos con más criterios
@@ -245,7 +268,7 @@ function compararProductosAvanzada() {
         producto.detalles.ram !== "No especificado" &&
         producto.detalles.ram < mejorProducto.detalles.ram
       ) {
-        mejorProducto.aspectosMejorados += "Más RAM que otros productos. ";
+        mejorProducto.aspectosMejorados += "Más memoria RAM. ";
       }
       if (
         producto.detalles.almacenamiento &&
@@ -260,7 +283,7 @@ function compararProductosAvanzada() {
         producto.detalles.bateria !== "No especificado" &&
         producto.detalles.bateria < mejorProducto.detalles.bateria
       ) {
-        mejorProducto.aspectosMejorados += "Mayor capacidad batería. ";
+        mejorProducto.aspectosMejorados += "Mayor capacidad de batería. ";
       }
       if (
         producto.detalles.peso &&
@@ -268,7 +291,7 @@ function compararProductosAvanzada() {
         producto.detalles.peso > mejorProducto.detalles.peso
       ) {
         mejorProducto.aspectosMejorados +=
-          "Este producto es más ligero que otros productos. ";
+          "Más ligero. ";
       }
       if (
         producto.detalles.resolucionPantalla &&
@@ -277,7 +300,7 @@ function compararProductosAvanzada() {
           mejorProducto.detalles.resolucionPantalla
       ) {
         mejorProducto.aspectosMejorados +=
-          "Resolución de pantalla más alta que otros productos. ";
+        "Mejor resolución de pantalla. ";
       }
     }
   });

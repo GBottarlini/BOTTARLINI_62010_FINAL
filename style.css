@@ -102,7 +102,7 @@
 .button::before {
   position: absolute;
   content: '';
-  background-color: #f5ecfb;
+  background-color: var(--body-color);
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -209,7 +209,7 @@ img {
   display: inline-block;
   position: relative;
   padding: 5px 24px 5px 56px;
-  ;
+  font-family: var(--body-font);
   font-weight: 500;
   line-height: 35px;
   border: 0 solid #e5e7eb;
@@ -217,15 +217,15 @@ img {
   border-radius: 9999px;
   border-color: #52525b;
   border-width: 1px;
-  color: #fff;
+  color: #222;
   max-width: 28rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 .buscar:focus {
-  outline: #f2f9f9;
-  border-color: #f2f9f9;
+  outline: #52525b;
+  border-color: #aad8d3;
 }
 
 .contenedor {
@@ -243,6 +243,12 @@ img {
 .buscador1 {
   display: inline;
 }
+
+.dark-mode .buscar {
+  background-color: #333;
+  color: #fff;
+}
+
 
 
 /*=============== CARD ===============*/
