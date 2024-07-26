@@ -1,30 +1,38 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 
-
-
-
 /*=============== VARIABLES CSS ===============*/
-
 :root {
-
   /*========== Colores ==========*/
-
   /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(82, 60%, 28%);
   --title-color: hsl(0, 0%, 15%);
   --text-color: hsl(0, 0%, 35%);
   --body-color: hsl(0, 0%, 95%);
   --container-color: hsl(0, 0%, 100%);
-
-  /*========== Fuente y tipografia ==========*/
+  
+  /*========== Fuente y tipografía ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Poppins", sans-serif;
   --h2-font-size: 1.25rem;
   --small-font-size: .813rem;
+  
+  /*========== Medidas comunes ==========*/
+  --border-radius: 20px;
+  --padding: 10px 20px;
+  
+  /*========== Colores de botón ==========*/
+  --btn-color: #438e96;
+  --btn-hover-color: #3b757f;
+  --btn-active-color: #356069;
+  
+  /*========== Colores de dark mode ==========*/
+  --dark-background: #222;
+  --dark-text: #fff;
+  --dark-border: #007bff;
 }
 
-/*========== Responsive tipografia ==========*/
+/*========== Responsive tipografía ==========*/
 @media screen and (min-width: 1120px) {
   :root {
     --h2-font-size: 1.5rem;
@@ -33,39 +41,35 @@
 }
 
 /*========= Estilos botones =========*/
-
 .cont-boton {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  ;
 }
 
 .botones {
-  background-color: #438e96;
+  background-color: var(--btn-color);
   color: #FAFAFA;
   font-family: var(--body-font);
   font-size: 12px;
-  padding: 10px 20px;
+  padding: var(--padding);
   border: none;
   margin: 10px;
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .botones:hover {
-  background-color: #3b757f;
+  background-color: var(--btn-hover-color);
 }
 
 .botones:active {
-  background-color: #356069;
+  background-color: var(--btn-active-color);
 }
 
-
 /*=============== LOGO ===============*/
-
 .logo {
   display: flex;
   background-color: transparent;
@@ -81,7 +85,7 @@
   filter: invert(0);
 }
 
-/*========= Estilos boton DarkMode =========*/
+/*========= Estilos botón DarkMode =========*/
 .switch {
   display: flex;
   justify-content: space-between;
@@ -110,11 +114,11 @@
   transition: 0.2s;
 }
 
-input:checked+.button {
+input:checked + .button {
   background-color: #5faab1;
 }
 
-input:checked+.button::before {
+input:checked + .button::before {
   transform: translateX(20px);
 }
 
@@ -123,17 +127,19 @@ input:checked+.button::before {
 }
 
 .dark-mode {
-  background-color: #222;
-  color: #fff;
+  background-color: var(--dark-background);
+  color: var(--dark-text);
 }
 
 /*====== Dark Mode Card & Table ======*/
 .dark-mode .card__data {
   background-color: #333;
-  color: #fff;
+  color: var(--dark-text);
 }
 
-.dark-mode .card__title {
+.dark-mode .card__title,
+.dark-mode .table thead th,
+.dark-mode .table tbody td {
   color: #ddd;
 }
 
@@ -149,16 +155,9 @@ input:checked+.button::before {
   background-color: #444;
 }
 
-.dark-mode .table thead th,
-.dark-mode .table tbody td {
-  color: #ddd;
-}
-
 .dark-mode .table {
   border-color: #555;
 }
-
-
 
 /*=============== BASE ===============*/
 * {
@@ -180,7 +179,6 @@ img {
 }
 
 /*=============== H1 ===============*/
-
 .text-center {
   text-align: center;
   margin: 40px 0px;
@@ -200,11 +198,9 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 /*=============== BUSCADOR ===============*/
-
 .buscar {
   display: inline-block;
   position: relative;
@@ -246,10 +242,8 @@ img {
 
 .dark-mode .buscar {
   background-color: #333;
-  color: #fff;
+  color: var(--dark-text);
 }
-
-
 
 /*=============== CARD ===============*/
 .container {
@@ -263,7 +257,6 @@ img {
   gap: 30px 100px;
   margin: 20px 10px;
 }
-
 
 .card__container {
   display: grid;
@@ -339,12 +332,11 @@ img {
   animation: remove-data 1s forwards;
 }
 
-/* Card animacion */
+/* Card animación */
 @keyframes show-data {
   50% {
     transform: translateY(-10rem);
   }
-
   100% {
     transform: translateY(-7rem);
   }
@@ -360,11 +352,9 @@ img {
   0% {
     transform: translateY(-7rem);
   }
-
   50% {
     transform: translateY(-10rem);
   }
-
   100% {
     transform: translateY(.5rem);
   }
@@ -375,16 +365,12 @@ img {
     overflow: initial;
     pointer-events: none;
   }
-
   50% {
     overflow: hidden;
   }
 }
 
-
-
 /*=============== BREAKPOINTS ===============*/
-
 /* Para dispositivos pequeños*/
 @media screen and (max-width: 340px) {
   .container {
@@ -407,10 +393,6 @@ img {
 
 /* Para dispositivos grandes */
 @media screen and (min-width: 1120px) {
-  /* .container {
-    height: 100vh;
-  } */
-
   .card__container {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -425,9 +407,7 @@ img {
   }
 }
 
-
-/*=============== SECCION MEJOR PRODUCTO ===============*/
-
+/*=============== SECCIÓN MEJOR PRODUCTO ===============*/
 .comparison-container {
   display: flex;
   justify-content: center;
@@ -447,8 +427,8 @@ img {
 
 .dark-mode .mejor-producto {
   background-color: #333;
-  border: 2px solid #007bff;
-  color: #fff;/
+  border: 2px solid var(--dark-border);
+  color: var(--dark-text);
 }
 
 .product-card {
@@ -464,7 +444,7 @@ img {
 .dark-mode .product-card {
   background: #222;
   border: 1px solid #555;
-  color: #fff;
+  color: var(--dark-text);
 }
 
 .product-image {
@@ -480,16 +460,13 @@ img {
   margin: 0 0 0.5rem;
 }
 
-
 @media (min-width: 600px) {
   .product-card {
     flex: 1;
   }
 }
 
-
 /*=============== FOOTER ===============*/
-
 footer {
   display: flex;
   align-items: center;

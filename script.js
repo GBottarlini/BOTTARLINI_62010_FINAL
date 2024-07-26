@@ -100,8 +100,6 @@ const obtenerDetallesProducto = async (product) => {
       bateria = "No especificado";
     }
 
-    console.log(details);
-
     // Obtener la imagen de mayor resolución
     const imagen = obtenerImagenMasResolucion(details);
 
@@ -134,10 +132,10 @@ const agregarProducto = (producto) => {
   productosAgregados.push(producto);
   mostrarProductosAgregados();
   Swal.fire({
-    title: 'Producto agregado',
+    title: "Producto agregado",
     text: `${producto.nombre} ha sido agregado exitosamente.`,
-    icon: 'success',
-    confirmButtonText: 'Aceptar'
+    icon: "success",
+    confirmButtonText: "Aceptar",
   });
 };
 
@@ -165,7 +163,7 @@ const mostrarProductosAgregados = () => {
     const cardData = document.createElement("div");
     cardData.classList.add("card__data");
 
-          const cardTitle = document.createElement("h2");
+    const cardTitle = document.createElement("h2");
     cardTitle.classList.add("card__title");
     cardTitle.textContent = producto.nombre;
     cardData.appendChild(cardTitle);
@@ -197,18 +195,18 @@ const eliminarProducto = (index) => {
     showCancelButton: true,
     confirmButtonColor: "#5faab1",
     cancelButtonColor: "#d33",
-    confirmButtonText: "¡Sí, bórralo!"
+    confirmButtonText: "¡Sí, bórralo!",
   }).then((result) => {
-    if (result.isConfirmed) { 
+    if (result.isConfirmed) {
       productosAgregados.splice(index, 1);
       mostrarProductosAgregados();
       Swal.fire({
         title: "¡Eliminado!",
         text: "Tu archivo ha sido eliminado.",
-        icon: "success"
+        icon: "success",
       });
     }
-  });  
+  });
 };
 // Función para comparar productos con más criterios
 function compararProductosAvanzada() {
@@ -289,8 +287,7 @@ function compararProductosAvanzada() {
         producto.detalles.peso !== "No especificado" &&
         producto.detalles.peso > mejorProducto.detalles.peso
       ) {
-        mejorProducto.aspectosMejorados +=
-          "Más ligero. ";
+        mejorProducto.aspectosMejorados += "Más ligero. ";
       }
       if (
         producto.detalles.resolucionPantalla &&
@@ -298,8 +295,7 @@ function compararProductosAvanzada() {
         producto.detalles.resolucionPantalla <
           mejorProducto.detalles.resolucionPantalla
       ) {
-        mejorProducto.aspectosMejorados +=
-        "Mejor resolución de pantalla. ";
+        mejorProducto.aspectosMejorados += "Mejor resolución de pantalla. ";
       }
     }
   });

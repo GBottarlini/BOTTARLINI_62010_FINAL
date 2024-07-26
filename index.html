@@ -13,35 +13,39 @@
 
     <header>
         <div class="switch">
-            <img src="IMG/1.png" class="logo" alt="logotipo de pagina comparadora de productos">
+            <img src="IMG/1.png" class="logo" alt="Logotipo de la página comparadora de productos">
             <input type="checkbox" class="darkModeToggle" id="darkModeToggle">
-            <label for="darkModeToggle" class="button"></label>
+            <label for="darkModeToggle" class="button" aria-label="Activar/Desactivar modo oscuro"></label>
         </div>
     </header>
 
+    <main>
+        <h1 class="text-center">Comparador de Productos</h1>
 
-    <h1 class="text-center">Comparador de Productos</h1>
-
-    <div>
-        <div class="contendor">
-            <div class="buscador">
-                <input type="text" class="buscar" id="searchQuery" placeholder="Buscar productos...">
-                <button id="buscarBtn" class="botones">Buscar</button>
+        <section class="search-section">
+            <div class="contendor">
+                <div class="buscador">
+                    <input type="text" class="buscar" id="searchQuery" placeholder="Buscar productos...">
+                    <button id="buscarBtn" class="botones">Buscar</button>
+                </div>
             </div>
-        </div>
 
-        <div id="searchResults" class="container"></div>
+            <div id="searchResults" class="container"></div>
+        </section>
 
-        <h2 class="text-center">Productos Agregados:</h2>
+        <section class="products-section">
+            <h2 class="text-center">Productos Agregados:</h2>
 
-        <div id="productsList" class="container"></div>
+            <div id="productsList" class="container"></div>
 
-        <div class="cont-boton"><button id="compareButtonAvanzado" class="botones">Comparar Avanzado</button></div>
+            <div class="cont-boton"><button id="compareButtonAvanzado" class="botones">Comparar Avanzado</button></div>
+        </section>
 
-    </div>
-
-    <h2 class="text-center">Resultados de la Comparación</h2>
-    <div id="comparisonResults" class="comparison-container"></div>
+        <section class="comparison-section">
+            <h2 class="text-center">Resultados de la Comparación</h2>
+            <div id="comparisonResults" class="comparison-container"></div>
+        </section>
+    </main>
 
     <footer>
         <small>
@@ -54,7 +58,7 @@
             </a>
         </div>
     </footer>
-    
+
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
