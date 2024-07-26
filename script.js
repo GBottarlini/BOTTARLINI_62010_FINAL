@@ -190,8 +190,6 @@ const mostrarProductosAgregados = () => {
 
 // Función para eliminar un producto de la lista
 const eliminarProducto = (index) => {
-  productosAgregados.splice(index, 1);
-  mostrarProductosAgregados();
   Swal.fire({
     title: "¿Estás seguro?",
     text: "¡No podrás revertir esto!",
@@ -201,7 +199,9 @@ const eliminarProducto = (index) => {
     cancelButtonColor: "#d33",
     confirmButtonText: "¡Sí, bórralo!"
   }).then((result) => {
-    if (result.isConfirmed) {
+    if (result.isConfirmed) { 
+      productosAgregados.splice(index, 1);
+      mostrarProductosAgregados();
       Swal.fire({
         title: "¡Eliminado!",
         text: "Tu archivo ha sido eliminado.",
@@ -210,7 +210,6 @@ const eliminarProducto = (index) => {
     }
   });  
 };
-
 // Función para comparar productos con más criterios
 function compararProductosAvanzada() {
   if (productosAgregados.length < 2) {
